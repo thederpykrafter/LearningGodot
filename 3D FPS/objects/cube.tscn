@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7fvjg6ahmkdy"]
+
+[ext_resource type="Texture2D" uid="uid://dsv4jm4vydflb" path="res://assets/textures/orange.png" id="1_mvove"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rjfn"]
+albedo_texture = ExtResource("1_mvove")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_wb74c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ky7vj"]
+
+[node name="Cube" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_0rjfn")
+mesh = SubResource("BoxMesh_wb74c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ky7vj")

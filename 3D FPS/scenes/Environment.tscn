@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0bbiuu6ml4oj"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_edcox"]
+ground_color = Color(0.160784, 0.815686, 0.905882, 1)
+
+[sub_resource type="Sky" id="Sky_2iust"]
+sky_material = SubResource("PhysicalSkyMaterial_edcox")
+
+[sub_resource type="Environment" id="Environment_20rw3"]
+background_mode = 2
+sky = SubResource("Sky_2iust")
+tonemap_mode = 1
+ssao_enabled = true
+
+[node name="Environment" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_20rw3")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.87959, -0.436605, 0.188936, 0, 0.397148, 0.917755, -0.475732, -0.807248, 0.349328, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true
