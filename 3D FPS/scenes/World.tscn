@@ -1,17 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dus42pjtpu87"]
 
 [ext_resource type="PackedScene" uid="uid://d0bbiuu6ml4oj" path="res://scenes/Environment.tscn" id="1_1yfib"]
-[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_hl707"]
 [ext_resource type="PackedScene" uid="uid://c0uq5yphu74pe" path="res://objects/floor.tscn" id="3_tan2l"]
 [ext_resource type="PackedScene" uid="uid://b7fvjg6ahmkdy" path="res://objects/cube.tscn" id="4_1sh2c"]
+[ext_resource type="PackedScene" uid="uid://covwd7as0qgm6" path="res://player/player.tscn" id="4_volmm"]
 
 [node name="World" type="Node3D"]
 
 [node name="Environment" parent="." instance=ExtResource("1_1yfib")]
-
-[node name="Character" parent="." instance=ExtResource("2_hl707")]
-CROUCH = "Crouch"
-SPRINT = "Sprint"
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -44,5 +40,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02127, 0, 3.47571)
 [node name="Cube5" parent="Level" instance=ExtResource("4_1sh2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119877, 0, 3.47571)
 
-[node name="Cube6" parent="Level" instance=ExtResource("4_1sh2c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97636, 7.60076, 1.92553)
+[node name="Player" parent="." instance=ExtResource("4_volmm")]

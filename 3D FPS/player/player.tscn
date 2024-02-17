@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://covwd7as0qgm6"]
+
+[ext_resource type="Script" path="res://player/DebugStats.gd" id="1_0h6xv"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_ru3e1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6f15v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lo738"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_nl2tq"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 2
+script = ExtResource("1_ru3e1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_6f15v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_lo738")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47733, -0.604487)
+mesh = SubResource("PrismMesh_nl2tq")
+
+[node name="Head" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.1615, 3.32968)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DebugStats" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Debug"
+script = ExtResource("1_0h6xv")

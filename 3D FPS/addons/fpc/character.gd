@@ -45,8 +45,8 @@ extends CharacterBody3D
 @export var motion_smoothing : bool = true
 @export var sprint_enabled : bool = true
 @export var crouch_enabled : bool = true
-@export_enum("Hold to Crouch", "Toggle Crouch") var crouch_mode : int = 0
-@export_enum("Hold to Sprint", "Toggle Sprint") var sprint_mode : int = 0
+@export_enum("Hold to Crouch", "Toggle Crouch") var crouch_mode : int = 1
+@export_enum("Hold to Sprint", "Toggle Sprint") var sprint_mode : int = 1
 @export var dynamic_fov : bool = true
 @export var continuous_jumping : bool = true
 @export var view_bobbing : bool = true
