@@ -50,14 +50,20 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="FPS" type="Label" parent="HUD_Canvas/Hud"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "FPS"
-script = ExtResource("1_0h6xv")
-
-[node name="ColorRect" type="ColorRect" parent="HUD_Canvas/Hud"]
+[node name="Reticle" type="ColorRect" parent="HUD_Canvas/Hud"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="DebugOverlay" type="VBoxContainer" parent="HUD_Canvas"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 28.0
+grow_vertical = 2
+
+[node name="FPS" type="Label" parent="HUD_Canvas/DebugOverlay"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "FPS"
+script = ExtResource("1_0h6xv")
