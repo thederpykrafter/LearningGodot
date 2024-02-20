@@ -4,5 +4,5 @@ extends Label
 
 func _process(delta):
 	text = ""
-	text += "fps: " + str(Engine.get_frames_per_second())
+	text += "fps: " + str(Performance.get_monitor(Performance.TIME_FPS))
 	#text += "other variable: " + str(OtherNode.variable)
