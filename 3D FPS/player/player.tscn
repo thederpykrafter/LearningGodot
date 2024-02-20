@@ -39,31 +39,61 @@ cull_mask = 1048573
 [node name="HUD_Canvas" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Hud" type="MarginContainer" parent="HUD_Canvas"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD_Canvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Reticle" type="ColorRect" parent="HUD_Canvas/Hud"]
-custom_minimum_size = Vector2(10, 10)
+[node name="Hud" type="HBoxContainer" parent="HUD_Canvas/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
-[node name="DebugOverlay" type="VBoxContainer" parent="HUD_Canvas"]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 28.0
-grow_vertical = 2
-
-[node name="FPS" type="Label" parent="HUD_Canvas/DebugOverlay"]
+[node name="LeftHUD" type="VBoxContainer" parent="HUD_Canvas/MarginContainer/Hud"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="DebugOverlay" type="Label" parent="HUD_Canvas/MarginContainer/Hud/LeftHUD"]
+layout_mode = 2
+text = "Debug Stats"
+
+[node name="FPS" type="Label" parent="HUD_Canvas/MarginContainer/Hud/LeftHUD/DebugOverlay"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 140.0
+offset_bottom = 50.0
 size_flags_vertical = 0
 text = "FPS"
 script = ExtResource("1_0h6xv")
+
+[node name="CenterHUD" type="VBoxContainer" parent="HUD_Canvas/MarginContainer/Hud"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 60.0
+
+[node name="RightHUD" type="VBoxContainer" parent="HUD_Canvas/MarginContainer/Hud"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="Reticle" type="ColorRect" parent="HUD_Canvas"]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
