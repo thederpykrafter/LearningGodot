@@ -24,18 +24,22 @@ shape = SubResource("CapsuleShape3D_lo738")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47733, -0.604487)
+layers = 2
 mesh = SubResource("PrismMesh_nl2tq")
 
 [node name="Head" type="Marker3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.1615, 3.32968)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, -1.03316e-07, 0, 1.03316e-07, 1, 0, 0, 0)
+cull_mask = 1048573
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD_Canvas" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+[node name="Hud" type="MarginContainer" parent="HUD_Canvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,8 +50,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="DebugStats" type="Label" parent="HUD/MarginContainer"]
+[node name="FPS" type="Label" parent="HUD_Canvas/Hud"]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Debug"
+text = "FPS"
 script = ExtResource("1_0h6xv")
+
+[node name="ColorRect" type="ColorRect" parent="HUD_Canvas/Hud"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
