@@ -61,13 +61,6 @@ size_flags_stretch_ratio = 10.0
 
 [node name="DebugOverlay" type="Label" parent="HUD_Canvas/MarginContainer/Hud/LeftHUD"]
 layout_mode = 2
-text = "Debug Stats"
-
-[node name="FPS" type="Label" parent="HUD_Canvas/MarginContainer/Hud/LeftHUD/DebugOverlay"]
-layout_mode = 2
-offset_top = 27.0
-offset_right = 140.0
-offset_bottom = 50.0
 size_flags_vertical = 0
 text = "FPS"
 script = ExtResource("1_0h6xv")
